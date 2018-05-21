@@ -1,0 +1,2979 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.generator.gdao.ScmCMemberMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.generator.gentry.ScmCMember">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="login_pwd" jdbcType="VARCHAR" property="loginPwd" />
+    <result column="yingke_code" jdbcType="VARCHAR" property="yingkeCode" />
+    <result column="uids" jdbcType="INTEGER" property="uids" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="landline" jdbcType="VARCHAR" property="landline" />
+    <result column="mem_email" jdbcType="VARCHAR" property="memEmail" />
+    <result column="mem_photo" jdbcType="VARCHAR" property="memPhoto" />
+    <result column="idcard_type" jdbcType="INTEGER" property="idcardType" />
+    <result column="idcard" jdbcType="VARCHAR" property="idcard" />
+    <result column="zipcode" jdbcType="VARCHAR" property="zipcode" />
+    <result column="nationality" jdbcType="VARCHAR" property="nationality" />
+    <result column="company" jdbcType="VARCHAR" property="company" />
+    <result column="alipay" jdbcType="VARCHAR" property="alipay" />
+    <result column="qq" jdbcType="INTEGER" property="qq" />
+    <result column="mem_level" jdbcType="VARCHAR" property="memLevel" />
+    <result column="mem_code" jdbcType="VARCHAR" property="memCode" />
+    <result column="mem_right" jdbcType="VARCHAR" property="memRight" />
+    <result column="mem_score" jdbcType="VARCHAR" property="memScore" />
+    <result column="history_score" jdbcType="VARCHAR" property="historyScore" />
+    <result column="credits" jdbcType="VARCHAR" property="credits" />
+    <result column="mem_leader" jdbcType="VARCHAR" property="memLeader" />
+    <result column="mem_guide" jdbcType="VARCHAR" property="memGuide" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="logoff_time" jdbcType="TIMESTAMP" property="logoffTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="addresss" jdbcType="VARCHAR" property="addresss" />
+    <result column="salt" jdbcType="VARCHAR" property="salt" />
+    <result column="travel_card_total" jdbcType="INTEGER" property="travelCardTotal" />
+    <result column="create_time_long" jdbcType="BIGINT" property="createTimeLong" />
+    <result column="update_time_long" jdbcType="BIGINT" property="updateTimeLong" />
+    <result column="birthday" jdbcType="BIGINT" property="birthday" />
+    <result column="from_stores" jdbcType="VARCHAR" property="fromStores" />
+    <result column="from_store_ids" jdbcType="VARCHAR" property="fromStoreIds" />
+    <result column="addresss_ids" jdbcType="VARCHAR" property="addresssIds" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="county" jdbcType="VARCHAR" property="county" />
+    <result column="resource_os" jdbcType="TINYINT" property="resourceOs" />
+    <result column="version_code" jdbcType="VARCHAR" property="versionCode" />
+    <result column="login_source" jdbcType="TINYINT" property="loginSource" />
+    <result column="channel" jdbcType="VARCHAR" property="channel" />
+    <result column="svip" jdbcType="TINYINT" property="svip" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, login_name, login_pwd, yingke_code, uids, nick_name, real_name, gender, mobile, 
+    landline, mem_email, mem_photo, idcard_type, idcard, zipcode, nationality, company, 
+    alipay, qq, mem_level, mem_code, mem_right, mem_score, history_score, credits, mem_leader, 
+    mem_guide, create_time, update_time, logoff_time, remark, addresss, salt, travel_card_total, 
+    create_time_long, update_time_long, birthday, from_stores, from_store_ids, addresss_ids, 
+    province, city, county, resource_os, version_code, login_source, channel, svip
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from scm_c_member
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from scm_c_member
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.generator.gentry.ScmCMember">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into scm_c_member (login_name, login_pwd, yingke_code, 
+      uids, nick_name, real_name, 
+      gender, mobile, landline, 
+      mem_email, mem_photo, idcard_type, 
+      idcard, zipcode, nationality, 
+      company, alipay, qq, 
+      mem_level, mem_code, mem_right, 
+      mem_score, history_score, credits, 
+      mem_leader, mem_guide, create_time, 
+      update_time, logoff_time, remark, 
+      addresss, salt, travel_card_total, 
+      create_time_long, update_time_long, birthday, 
+      from_stores, from_store_ids, addresss_ids, 
+      province, city, county, 
+      resource_os, version_code, login_source, 
+      channel, svip)
+    values (#{loginName,jdbcType=VARCHAR}, #{loginPwd,jdbcType=VARCHAR}, #{yingkeCode,jdbcType=VARCHAR}, 
+      #{uids,jdbcType=INTEGER}, #{nickName,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{landline,jdbcType=VARCHAR}, 
+      #{memEmail,jdbcType=VARCHAR}, #{memPhoto,jdbcType=VARCHAR}, #{idcardType,jdbcType=INTEGER}, 
+      #{idcard,jdbcType=VARCHAR}, #{zipcode,jdbcType=VARCHAR}, #{nationality,jdbcType=VARCHAR}, 
+      #{company,jdbcType=VARCHAR}, #{alipay,jdbcType=VARCHAR}, #{qq,jdbcType=INTEGER}, 
+      #{memLevel,jdbcType=VARCHAR}, #{memCode,jdbcType=VARCHAR}, #{memRight,jdbcType=VARCHAR}, 
+      #{memScore,jdbcType=VARCHAR}, #{historyScore,jdbcType=VARCHAR}, #{credits,jdbcType=VARCHAR}, 
+      #{memLeader,jdbcType=VARCHAR}, #{memGuide,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{logoffTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
+      #{addresss,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{travelCardTotal,jdbcType=INTEGER}, 
+      #{createTimeLong,jdbcType=BIGINT}, #{updateTimeLong,jdbcType=BIGINT}, #{birthday,jdbcType=BIGINT}, 
+      #{fromStores,jdbcType=VARCHAR}, #{fromStoreIds,jdbcType=VARCHAR}, #{addresssIds,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{county,jdbcType=VARCHAR}, 
+      #{resourceOs,jdbcType=TINYINT}, #{versionCode,jdbcType=VARCHAR}, #{loginSource,jdbcType=TINYINT}, 
+      #{channel,jdbcType=VARCHAR}, #{svip,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.generator.gentry.ScmCMember">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into scm_c_member
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loginName != null">
+        login_name,
+      </if>
+      <if test="loginPwd != null">
+        login_pwd,
+      </if>
+      <if test="yingkeCode != null">
+        yingke_code,
+      </if>
+      <if test="uids != null">
+        uids,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="realName != null">
+        real_name,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="landline != null">
+        landline,
+      </if>
+      <if test="memEmail != null">
+        mem_email,
+      </if>
+      <if test="memPhoto != null">
+        mem_photo,
+      </if>
+      <if test="idcardType != null">
+        idcard_type,
+      </if>
+      <if test="idcard != null">
+        idcard,
+      </if>
+      <if test="zipcode != null">
+        zipcode,
+      </if>
+      <if test="nationality != null">
+        nationality,
+      </if>
+      <if test="company != null">
+        company,
+      </if>
+      <if test="alipay != null">
+        alipay,
+      </if>
+      <if test="qq != null">
+        qq,
+      </if>
+      <if test="memLevel != null">
+        mem_level,
+      </if>
+      <if test="memCode != null">
+        mem_code,
+      </if>
+      <if test="memRight != null">
+        mem_right,
+      </if>
+      <if test="memScore != null">
+        mem_score,
+      </if>
+      <if test="historyScore != null">
+        history_score,
+      </if>
+      <if test="credits != null">
+        credits,
+      </if>
+      <if test="memLeader != null">
+        mem_leader,
+      </if>
+      <if test="memGuide != null">
+        mem_guide,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="logoffTime != null">
+        logoff_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="addresss != null">
+        addresss,
+      </if>
+      <if test="salt != null">
+        salt,
+      </if>
+      <if test="travelCardTotal != null">
+        travel_card_total,
+      </if>
+      <if test="createTimeLong != null">
+        create_time_long,
+      </if>
+      <if test="updateTimeLong != null">
+        update_time_long,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="fromStores != null">
+        from_stores,
+      </if>
+      <if test="fromStoreIds != null">
+        from_store_ids,
+      </if>
+      <if test="addresssIds != null">
+        addresss_ids,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="county != null">
+        county,
+      </if>
+      <if test="resourceOs != null">
+        resource_os,
+      </if>
+      <if test="versionCode != null">
+        version_code,
+      </if>
+      <if test="loginSource != null">
+        login_source,
+      </if>
+      <if test="channel != null">
+        channel,
+      </if>
+      <if test="svip != null">
+        svip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loginName != null">
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null">
+        #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="yingkeCode != null">
+        #{yingkeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="uids != null">
+        #{uids,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="landline != null">
+        #{landline,jdbcType=VARCHAR},
+      </if>
+      <if test="memEmail != null">
+        #{memEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="memPhoto != null">
+        #{memPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardType != null">
+        #{idcardType,jdbcType=INTEGER},
+      </if>
+      <if test="idcard != null">
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="zipcode != null">
+        #{zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="alipay != null">
+        #{alipay,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=INTEGER},
+      </if>
+      <if test="memLevel != null">
+        #{memLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="memCode != null">
+        #{memCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memRight != null">
+        #{memRight,jdbcType=VARCHAR},
+      </if>
+      <if test="memScore != null">
+        #{memScore,jdbcType=VARCHAR},
+      </if>
+      <if test="historyScore != null">
+        #{historyScore,jdbcType=VARCHAR},
+      </if>
+      <if test="credits != null">
+        #{credits,jdbcType=VARCHAR},
+      </if>
+      <if test="memLeader != null">
+        #{memLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="memGuide != null">
+        #{memGuide,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logoffTime != null">
+        #{logoffTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="addresss != null">
+        #{addresss,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="travelCardTotal != null">
+        #{travelCardTotal,jdbcType=INTEGER},
+      </if>
+      <if test="createTimeLong != null">
+        #{createTimeLong,jdbcType=BIGINT},
+      </if>
+      <if test="updateTimeLong != null">
+        #{updateTimeLong,jdbcType=BIGINT},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=BIGINT},
+      </if>
+      <if test="fromStores != null">
+        #{fromStores,jdbcType=VARCHAR},
+      </if>
+      <if test="fromStoreIds != null">
+        #{fromStoreIds,jdbcType=VARCHAR},
+      </if>
+      <if test="addresssIds != null">
+        #{addresssIds,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="county != null">
+        #{county,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceOs != null">
+        #{resourceOs,jdbcType=TINYINT},
+      </if>
+      <if test="versionCode != null">
+        #{versionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="loginSource != null">
+        #{loginSource,jdbcType=TINYINT},
+      </if>
+      <if test="channel != null">
+        #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="svip != null">
+        #{svip,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.generator.gentry.ScmCMember">
+    update scm_c_member
+    <set>
+      <if test="loginName != null">
+        login_name = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null">
+        login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="yingkeCode != null">
+        yingke_code = #{yingkeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="uids != null">
+        uids = #{uids,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="landline != null">
+        landline = #{landline,jdbcType=VARCHAR},
+      </if>
+      <if test="memEmail != null">
+        mem_email = #{memEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="memPhoto != null">
+        mem_photo = #{memPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardType != null">
+        idcard_type = #{idcardType,jdbcType=INTEGER},
+      </if>
+      <if test="idcard != null">
+        idcard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="zipcode != null">
+        zipcode = #{zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        nationality = #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="alipay != null">
+        alipay = #{alipay,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        qq = #{qq,jdbcType=INTEGER},
+      </if>
+      <if test="memLevel != null">
+        mem_level = #{memLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="memCode != null">
+        mem_code = #{memCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memRight != null">
+        mem_right = #{memRight,jdbcType=VARCHAR},
+      </if>
+      <if test="memScore != null">
+        mem_score = #{memScore,jdbcType=VARCHAR},
+      </if>
+      <if test="historyScore != null">
+        history_score = #{historyScore,jdbcType=VARCHAR},
+      </if>
+      <if test="credits != null">
+        credits = #{credits,jdbcType=VARCHAR},
+      </if>
+      <if test="memLeader != null">
+        mem_leader = #{memLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="memGuide != null">
+        mem_guide = #{memGuide,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logoffTime != null">
+        logoff_time = #{logoffTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="addresss != null">
+        addresss = #{addresss,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="travelCardTotal != null">
+        travel_card_total = #{travelCardTotal,jdbcType=INTEGER},
+      </if>
+      <if test="createTimeLong != null">
+        create_time_long = #{createTimeLong,jdbcType=BIGINT},
+      </if>
+      <if test="updateTimeLong != null">
+        update_time_long = #{updateTimeLong,jdbcType=BIGINT},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=BIGINT},
+      </if>
+      <if test="fromStores != null">
+        from_stores = #{fromStores,jdbcType=VARCHAR},
+      </if>
+      <if test="fromStoreIds != null">
+        from_store_ids = #{fromStoreIds,jdbcType=VARCHAR},
+      </if>
+      <if test="addresssIds != null">
+        addresss_ids = #{addresssIds,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="county != null">
+        county = #{county,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceOs != null">
+        resource_os = #{resourceOs,jdbcType=TINYINT},
+      </if>
+      <if test="versionCode != null">
+        version_code = #{versionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="loginSource != null">
+        login_source = #{loginSource,jdbcType=TINYINT},
+      </if>
+      <if test="channel != null">
+        channel = #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="svip != null">
+        svip = #{svip,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.generator.gentry.ScmCMember">
+    update scm_c_member
+    set login_name = #{loginName,jdbcType=VARCHAR},
+      login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      yingke_code = #{yingkeCode,jdbcType=VARCHAR},
+      uids = #{uids,jdbcType=INTEGER},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=INTEGER},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      landline = #{landline,jdbcType=VARCHAR},
+      mem_email = #{memEmail,jdbcType=VARCHAR},
+      mem_photo = #{memPhoto,jdbcType=VARCHAR},
+      idcard_type = #{idcardType,jdbcType=INTEGER},
+      idcard = #{idcard,jdbcType=VARCHAR},
+      zipcode = #{zipcode,jdbcType=VARCHAR},
+      nationality = #{nationality,jdbcType=VARCHAR},
+      company = #{company,jdbcType=VARCHAR},
+      alipay = #{alipay,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=INTEGER},
+      mem_level = #{memLevel,jdbcType=VARCHAR},
+      mem_code = #{memCode,jdbcType=VARCHAR},
+      mem_right = #{memRight,jdbcType=VARCHAR},
+      mem_score = #{memScore,jdbcType=VARCHAR},
+      history_score = #{historyScore,jdbcType=VARCHAR},
+      credits = #{credits,jdbcType=VARCHAR},
+      mem_leader = #{memLeader,jdbcType=VARCHAR},
+      mem_guide = #{memGuide,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      logoff_time = #{logoffTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      addresss = #{addresss,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      travel_card_total = #{travelCardTotal,jdbcType=INTEGER},
+      create_time_long = #{createTimeLong,jdbcType=BIGINT},
+      update_time_long = #{updateTimeLong,jdbcType=BIGINT},
+      birthday = #{birthday,jdbcType=BIGINT},
+      from_stores = #{fromStores,jdbcType=VARCHAR},
+      from_store_ids = #{fromStoreIds,jdbcType=VARCHAR},
+      addresss_ids = #{addresssIds,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      county = #{county,jdbcType=VARCHAR},
+      resource_os = #{resourceOs,jdbcType=TINYINT},
+      version_code = #{versionCode,jdbcType=VARCHAR},
+      login_source = #{loginSource,jdbcType=TINYINT},
+      channel = #{channel,jdbcType=VARCHAR},
+      svip = #{svip,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.example.demo.generator.gentry.ScmCMember">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="login_pwd" jdbcType="VARCHAR" property="loginPwd" />
+    <result column="yingke_code" jdbcType="VARCHAR" property="yingkeCode" />
+    <result column="uids" jdbcType="INTEGER" property="uids" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="landline" jdbcType="VARCHAR" property="landline" />
+    <result column="mem_email" jdbcType="VARCHAR" property="memEmail" />
+    <result column="mem_photo" jdbcType="VARCHAR" property="memPhoto" />
+    <result column="idcard_type" jdbcType="INTEGER" property="idcardType" />
+    <result column="idcard" jdbcType="VARCHAR" property="idcard" />
+    <result column="zipcode" jdbcType="VARCHAR" property="zipcode" />
+    <result column="nationality" jdbcType="VARCHAR" property="nationality" />
+    <result column="company" jdbcType="VARCHAR" property="company" />
+    <result column="alipay" jdbcType="VARCHAR" property="alipay" />
+    <result column="qq" jdbcType="INTEGER" property="qq" />
+    <result column="mem_level" jdbcType="VARCHAR" property="memLevel" />
+    <result column="mem_code" jdbcType="VARCHAR" property="memCode" />
+    <result column="mem_right" jdbcType="VARCHAR" property="memRight" />
+    <result column="mem_score" jdbcType="VARCHAR" property="memScore" />
+    <result column="history_score" jdbcType="VARCHAR" property="historyScore" />
+    <result column="credits" jdbcType="VARCHAR" property="credits" />
+    <result column="mem_leader" jdbcType="VARCHAR" property="memLeader" />
+    <result column="mem_guide" jdbcType="VARCHAR" property="memGuide" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="logoff_time" jdbcType="TIMESTAMP" property="logoffTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="addresss" jdbcType="VARCHAR" property="addresss" />
+    <result column="salt" jdbcType="VARCHAR" property="salt" />
+    <result column="travel_card_total" jdbcType="INTEGER" property="travelCardTotal" />
+    <result column="create_time_long" jdbcType="BIGINT" property="createTimeLong" />
+    <result column="update_time_long" jdbcType="BIGINT" property="updateTimeLong" />
+    <result column="birthday" jdbcType="BIGINT" property="birthday" />
+    <result column="from_stores" jdbcType="VARCHAR" property="fromStores" />
+    <result column="from_store_ids" jdbcType="VARCHAR" property="fromStoreIds" />
+    <result column="addresss_ids" jdbcType="VARCHAR" property="addresssIds" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="county" jdbcType="VARCHAR" property="county" />
+    <result column="resource_os" jdbcType="TINYINT" property="resourceOs" />
+    <result column="version_code" jdbcType="VARCHAR" property="versionCode" />
+    <result column="login_source" jdbcType="TINYINT" property="loginSource" />
+    <result column="channel" jdbcType="VARCHAR" property="channel" />
+    <result column="svip" jdbcType="TINYINT" property="svip" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, login_name, login_pwd, yingke_code, uids, nick_name, real_name, gender, mobile, 
+    landline, mem_email, mem_photo, idcard_type, idcard, zipcode, nationality, company, 
+    alipay, qq, mem_level, mem_code, mem_right, mem_score, history_score, credits, mem_leader, 
+    mem_guide, create_time, update_time, logoff_time, remark, addresss, salt, travel_card_total, 
+    create_time_long, update_time_long, birthday, from_stores, from_store_ids, addresss_ids, 
+    province, city, county, resource_os, version_code, login_source, channel, svip
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from scm_c_member
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from scm_c_member
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.generator.gentry.ScmCMember">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into scm_c_member (login_name, login_pwd, yingke_code, 
+      uids, nick_name, real_name, 
+      gender, mobile, landline, 
+      mem_email, mem_photo, idcard_type, 
+      idcard, zipcode, nationality, 
+      company, alipay, qq, 
+      mem_level, mem_code, mem_right, 
+      mem_score, history_score, credits, 
+      mem_leader, mem_guide, create_time, 
+      update_time, logoff_time, remark, 
+      addresss, salt, travel_card_total, 
+      create_time_long, update_time_long, birthday, 
+      from_stores, from_store_ids, addresss_ids, 
+      province, city, county, 
+      resource_os, version_code, login_source, 
+      channel, svip)
+    values (#{loginName,jdbcType=VARCHAR}, #{loginPwd,jdbcType=VARCHAR}, #{yingkeCode,jdbcType=VARCHAR}, 
+      #{uids,jdbcType=INTEGER}, #{nickName,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{landline,jdbcType=VARCHAR}, 
+      #{memEmail,jdbcType=VARCHAR}, #{memPhoto,jdbcType=VARCHAR}, #{idcardType,jdbcType=INTEGER}, 
+      #{idcard,jdbcType=VARCHAR}, #{zipcode,jdbcType=VARCHAR}, #{nationality,jdbcType=VARCHAR}, 
+      #{company,jdbcType=VARCHAR}, #{alipay,jdbcType=VARCHAR}, #{qq,jdbcType=INTEGER}, 
+      #{memLevel,jdbcType=VARCHAR}, #{memCode,jdbcType=VARCHAR}, #{memRight,jdbcType=VARCHAR}, 
+      #{memScore,jdbcType=VARCHAR}, #{historyScore,jdbcType=VARCHAR}, #{credits,jdbcType=VARCHAR}, 
+      #{memLeader,jdbcType=VARCHAR}, #{memGuide,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{logoffTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
+      #{addresss,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{travelCardTotal,jdbcType=INTEGER}, 
+      #{createTimeLong,jdbcType=BIGINT}, #{updateTimeLong,jdbcType=BIGINT}, #{birthday,jdbcType=BIGINT}, 
+      #{fromStores,jdbcType=VARCHAR}, #{fromStoreIds,jdbcType=VARCHAR}, #{addresssIds,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{county,jdbcType=VARCHAR}, 
+      #{resourceOs,jdbcType=TINYINT}, #{versionCode,jdbcType=VARCHAR}, #{loginSource,jdbcType=TINYINT}, 
+      #{channel,jdbcType=VARCHAR}, #{svip,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.generator.gentry.ScmCMember">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into scm_c_member
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loginName != null">
+        login_name,
+      </if>
+      <if test="loginPwd != null">
+        login_pwd,
+      </if>
+      <if test="yingkeCode != null">
+        yingke_code,
+      </if>
+      <if test="uids != null">
+        uids,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="realName != null">
+        real_name,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="landline != null">
+        landline,
+      </if>
+      <if test="memEmail != null">
+        mem_email,
+      </if>
+      <if test="memPhoto != null">
+        mem_photo,
+      </if>
+      <if test="idcardType != null">
+        idcard_type,
+      </if>
+      <if test="idcard != null">
+        idcard,
+      </if>
+      <if test="zipcode != null">
+        zipcode,
+      </if>
+      <if test="nationality != null">
+        nationality,
+      </if>
+      <if test="company != null">
+        company,
+      </if>
+      <if test="alipay != null">
+        alipay,
+      </if>
+      <if test="qq != null">
+        qq,
+      </if>
+      <if test="memLevel != null">
+        mem_level,
+      </if>
+      <if test="memCode != null">
+        mem_code,
+      </if>
+      <if test="memRight != null">
+        mem_right,
+      </if>
+      <if test="memScore != null">
+        mem_score,
+      </if>
+      <if test="historyScore != null">
+        history_score,
+      </if>
+      <if test="credits != null">
+        credits,
+      </if>
+      <if test="memLeader != null">
+        mem_leader,
+      </if>
+      <if test="memGuide != null">
+        mem_guide,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="logoffTime != null">
+        logoff_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="addresss != null">
+        addresss,
+      </if>
+      <if test="salt != null">
+        salt,
+      </if>
+      <if test="travelCardTotal != null">
+        travel_card_total,
+      </if>
+      <if test="createTimeLong != null">
+        create_time_long,
+      </if>
+      <if test="updateTimeLong != null">
+        update_time_long,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="fromStores != null">
+        from_stores,
+      </if>
+      <if test="fromStoreIds != null">
+        from_store_ids,
+      </if>
+      <if test="addresssIds != null">
+        addresss_ids,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="county != null">
+        county,
+      </if>
+      <if test="resourceOs != null">
+        resource_os,
+      </if>
+      <if test="versionCode != null">
+        version_code,
+      </if>
+      <if test="loginSource != null">
+        login_source,
+      </if>
+      <if test="channel != null">
+        channel,
+      </if>
+      <if test="svip != null">
+        svip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loginName != null">
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null">
+        #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="yingkeCode != null">
+        #{yingkeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="uids != null">
+        #{uids,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="landline != null">
+        #{landline,jdbcType=VARCHAR},
+      </if>
+      <if test="memEmail != null">
+        #{memEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="memPhoto != null">
+        #{memPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardType != null">
+        #{idcardType,jdbcType=INTEGER},
+      </if>
+      <if test="idcard != null">
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="zipcode != null">
+        #{zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="alipay != null">
+        #{alipay,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=INTEGER},
+      </if>
+      <if test="memLevel != null">
+        #{memLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="memCode != null">
+        #{memCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memRight != null">
+        #{memRight,jdbcType=VARCHAR},
+      </if>
+      <if test="memScore != null">
+        #{memScore,jdbcType=VARCHAR},
+      </if>
+      <if test="historyScore != null">
+        #{historyScore,jdbcType=VARCHAR},
+      </if>
+      <if test="credits != null">
+        #{credits,jdbcType=VARCHAR},
+      </if>
+      <if test="memLeader != null">
+        #{memLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="memGuide != null">
+        #{memGuide,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logoffTime != null">
+        #{logoffTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="addresss != null">
+        #{addresss,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="travelCardTotal != null">
+        #{travelCardTotal,jdbcType=INTEGER},
+      </if>
+      <if test="createTimeLong != null">
+        #{createTimeLong,jdbcType=BIGINT},
+      </if>
+      <if test="updateTimeLong != null">
+        #{updateTimeLong,jdbcType=BIGINT},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=BIGINT},
+      </if>
+      <if test="fromStores != null">
+        #{fromStores,jdbcType=VARCHAR},
+      </if>
+      <if test="fromStoreIds != null">
+        #{fromStoreIds,jdbcType=VARCHAR},
+      </if>
+      <if test="addresssIds != null">
+        #{addresssIds,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="county != null">
+        #{county,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceOs != null">
+        #{resourceOs,jdbcType=TINYINT},
+      </if>
+      <if test="versionCode != null">
+        #{versionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="loginSource != null">
+        #{loginSource,jdbcType=TINYINT},
+      </if>
+      <if test="channel != null">
+        #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="svip != null">
+        #{svip,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.generator.gentry.ScmCMember">
+    update scm_c_member
+    <set>
+      <if test="loginName != null">
+        login_name = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null">
+        login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="yingkeCode != null">
+        yingke_code = #{yingkeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="uids != null">
+        uids = #{uids,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="landline != null">
+        landline = #{landline,jdbcType=VARCHAR},
+      </if>
+      <if test="memEmail != null">
+        mem_email = #{memEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="memPhoto != null">
+        mem_photo = #{memPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardType != null">
+        idcard_type = #{idcardType,jdbcType=INTEGER},
+      </if>
+      <if test="idcard != null">
+        idcard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="zipcode != null">
+        zipcode = #{zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        nationality = #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="alipay != null">
+        alipay = #{alipay,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        qq = #{qq,jdbcType=INTEGER},
+      </if>
+      <if test="memLevel != null">
+        mem_level = #{memLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="memCode != null">
+        mem_code = #{memCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memRight != null">
+        mem_right = #{memRight,jdbcType=VARCHAR},
+      </if>
+      <if test="memScore != null">
+        mem_score = #{memScore,jdbcType=VARCHAR},
+      </if>
+      <if test="historyScore != null">
+        history_score = #{historyScore,jdbcType=VARCHAR},
+      </if>
+      <if test="credits != null">
+        credits = #{credits,jdbcType=VARCHAR},
+      </if>
+      <if test="memLeader != null">
+        mem_leader = #{memLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="memGuide != null">
+        mem_guide = #{memGuide,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logoffTime != null">
+        logoff_time = #{logoffTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="addresss != null">
+        addresss = #{addresss,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="travelCardTotal != null">
+        travel_card_total = #{travelCardTotal,jdbcType=INTEGER},
+      </if>
+      <if test="createTimeLong != null">
+        create_time_long = #{createTimeLong,jdbcType=BIGINT},
+      </if>
+      <if test="updateTimeLong != null">
+        update_time_long = #{updateTimeLong,jdbcType=BIGINT},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=BIGINT},
+      </if>
+      <if test="fromStores != null">
+        from_stores = #{fromStores,jdbcType=VARCHAR},
+      </if>
+      <if test="fromStoreIds != null">
+        from_store_ids = #{fromStoreIds,jdbcType=VARCHAR},
+      </if>
+      <if test="addresssIds != null">
+        addresss_ids = #{addresssIds,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="county != null">
+        county = #{county,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceOs != null">
+        resource_os = #{resourceOs,jdbcType=TINYINT},
+      </if>
+      <if test="versionCode != null">
+        version_code = #{versionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="loginSource != null">
+        login_source = #{loginSource,jdbcType=TINYINT},
+      </if>
+      <if test="channel != null">
+        channel = #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="svip != null">
+        svip = #{svip,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.generator.gentry.ScmCMember">
+    update scm_c_member
+    set login_name = #{loginName,jdbcType=VARCHAR},
+      login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      yingke_code = #{yingkeCode,jdbcType=VARCHAR},
+      uids = #{uids,jdbcType=INTEGER},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=INTEGER},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      landline = #{landline,jdbcType=VARCHAR},
+      mem_email = #{memEmail,jdbcType=VARCHAR},
+      mem_photo = #{memPhoto,jdbcType=VARCHAR},
+      idcard_type = #{idcardType,jdbcType=INTEGER},
+      idcard = #{idcard,jdbcType=VARCHAR},
+      zipcode = #{zipcode,jdbcType=VARCHAR},
+      nationality = #{nationality,jdbcType=VARCHAR},
+      company = #{company,jdbcType=VARCHAR},
+      alipay = #{alipay,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=INTEGER},
+      mem_level = #{memLevel,jdbcType=VARCHAR},
+      mem_code = #{memCode,jdbcType=VARCHAR},
+      mem_right = #{memRight,jdbcType=VARCHAR},
+      mem_score = #{memScore,jdbcType=VARCHAR},
+      history_score = #{historyScore,jdbcType=VARCHAR},
+      credits = #{credits,jdbcType=VARCHAR},
+      mem_leader = #{memLeader,jdbcType=VARCHAR},
+      mem_guide = #{memGuide,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      logoff_time = #{logoffTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      addresss = #{addresss,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      travel_card_total = #{travelCardTotal,jdbcType=INTEGER},
+      create_time_long = #{createTimeLong,jdbcType=BIGINT},
+      update_time_long = #{updateTimeLong,jdbcType=BIGINT},
+      birthday = #{birthday,jdbcType=BIGINT},
+      from_stores = #{fromStores,jdbcType=VARCHAR},
+      from_store_ids = #{fromStoreIds,jdbcType=VARCHAR},
+      addresss_ids = #{addresssIds,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      county = #{county,jdbcType=VARCHAR},
+      resource_os = #{resourceOs,jdbcType=TINYINT},
+      version_code = #{versionCode,jdbcType=VARCHAR},
+      login_source = #{loginSource,jdbcType=TINYINT},
+      channel = #{channel,jdbcType=VARCHAR},
+      svip = #{svip,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.example.demo.generator.gentry.ScmCMember">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="login_pwd" jdbcType="VARCHAR" property="loginPwd" />
+    <result column="yingke_code" jdbcType="VARCHAR" property="yingkeCode" />
+    <result column="uids" jdbcType="INTEGER" property="uids" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="landline" jdbcType="VARCHAR" property="landline" />
+    <result column="mem_email" jdbcType="VARCHAR" property="memEmail" />
+    <result column="mem_photo" jdbcType="VARCHAR" property="memPhoto" />
+    <result column="idcard_type" jdbcType="INTEGER" property="idcardType" />
+    <result column="idcard" jdbcType="VARCHAR" property="idcard" />
+    <result column="zipcode" jdbcType="VARCHAR" property="zipcode" />
+    <result column="nationality" jdbcType="VARCHAR" property="nationality" />
+    <result column="company" jdbcType="VARCHAR" property="company" />
+    <result column="alipay" jdbcType="VARCHAR" property="alipay" />
+    <result column="qq" jdbcType="INTEGER" property="qq" />
+    <result column="mem_level" jdbcType="VARCHAR" property="memLevel" />
+    <result column="mem_code" jdbcType="VARCHAR" property="memCode" />
+    <result column="mem_right" jdbcType="VARCHAR" property="memRight" />
+    <result column="mem_score" jdbcType="VARCHAR" property="memScore" />
+    <result column="history_score" jdbcType="VARCHAR" property="historyScore" />
+    <result column="credits" jdbcType="VARCHAR" property="credits" />
+    <result column="mem_leader" jdbcType="VARCHAR" property="memLeader" />
+    <result column="mem_guide" jdbcType="VARCHAR" property="memGuide" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="logoff_time" jdbcType="TIMESTAMP" property="logoffTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="addresss" jdbcType="VARCHAR" property="addresss" />
+    <result column="salt" jdbcType="VARCHAR" property="salt" />
+    <result column="travel_card_total" jdbcType="INTEGER" property="travelCardTotal" />
+    <result column="create_time_long" jdbcType="BIGINT" property="createTimeLong" />
+    <result column="update_time_long" jdbcType="BIGINT" property="updateTimeLong" />
+    <result column="birthday" jdbcType="BIGINT" property="birthday" />
+    <result column="from_stores" jdbcType="VARCHAR" property="fromStores" />
+    <result column="from_store_ids" jdbcType="VARCHAR" property="fromStoreIds" />
+    <result column="addresss_ids" jdbcType="VARCHAR" property="addresssIds" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="county" jdbcType="VARCHAR" property="county" />
+    <result column="resource_os" jdbcType="TINYINT" property="resourceOs" />
+    <result column="version_code" jdbcType="VARCHAR" property="versionCode" />
+    <result column="login_source" jdbcType="TINYINT" property="loginSource" />
+    <result column="channel" jdbcType="VARCHAR" property="channel" />
+    <result column="svip" jdbcType="TINYINT" property="svip" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, login_name, login_pwd, yingke_code, uids, nick_name, real_name, gender, mobile, 
+    landline, mem_email, mem_photo, idcard_type, idcard, zipcode, nationality, company, 
+    alipay, qq, mem_level, mem_code, mem_right, mem_score, history_score, credits, mem_leader, 
+    mem_guide, create_time, update_time, logoff_time, remark, addresss, salt, travel_card_total, 
+    create_time_long, update_time_long, birthday, from_stores, from_store_ids, addresss_ids, 
+    province, city, county, resource_os, version_code, login_source, channel, svip
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from scm_c_member
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from scm_c_member
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.generator.gentry.ScmCMember">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into scm_c_member (login_name, login_pwd, yingke_code, 
+      uids, nick_name, real_name, 
+      gender, mobile, landline, 
+      mem_email, mem_photo, idcard_type, 
+      idcard, zipcode, nationality, 
+      company, alipay, qq, 
+      mem_level, mem_code, mem_right, 
+      mem_score, history_score, credits, 
+      mem_leader, mem_guide, create_time, 
+      update_time, logoff_time, remark, 
+      addresss, salt, travel_card_total, 
+      create_time_long, update_time_long, birthday, 
+      from_stores, from_store_ids, addresss_ids, 
+      province, city, county, 
+      resource_os, version_code, login_source, 
+      channel, svip)
+    values (#{loginName,jdbcType=VARCHAR}, #{loginPwd,jdbcType=VARCHAR}, #{yingkeCode,jdbcType=VARCHAR}, 
+      #{uids,jdbcType=INTEGER}, #{nickName,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{landline,jdbcType=VARCHAR}, 
+      #{memEmail,jdbcType=VARCHAR}, #{memPhoto,jdbcType=VARCHAR}, #{idcardType,jdbcType=INTEGER}, 
+      #{idcard,jdbcType=VARCHAR}, #{zipcode,jdbcType=VARCHAR}, #{nationality,jdbcType=VARCHAR}, 
+      #{company,jdbcType=VARCHAR}, #{alipay,jdbcType=VARCHAR}, #{qq,jdbcType=INTEGER}, 
+      #{memLevel,jdbcType=VARCHAR}, #{memCode,jdbcType=VARCHAR}, #{memRight,jdbcType=VARCHAR}, 
+      #{memScore,jdbcType=VARCHAR}, #{historyScore,jdbcType=VARCHAR}, #{credits,jdbcType=VARCHAR}, 
+      #{memLeader,jdbcType=VARCHAR}, #{memGuide,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{logoffTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
+      #{addresss,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{travelCardTotal,jdbcType=INTEGER}, 
+      #{createTimeLong,jdbcType=BIGINT}, #{updateTimeLong,jdbcType=BIGINT}, #{birthday,jdbcType=BIGINT}, 
+      #{fromStores,jdbcType=VARCHAR}, #{fromStoreIds,jdbcType=VARCHAR}, #{addresssIds,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{county,jdbcType=VARCHAR}, 
+      #{resourceOs,jdbcType=TINYINT}, #{versionCode,jdbcType=VARCHAR}, #{loginSource,jdbcType=TINYINT}, 
+      #{channel,jdbcType=VARCHAR}, #{svip,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.generator.gentry.ScmCMember">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into scm_c_member
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loginName != null">
+        login_name,
+      </if>
+      <if test="loginPwd != null">
+        login_pwd,
+      </if>
+      <if test="yingkeCode != null">
+        yingke_code,
+      </if>
+      <if test="uids != null">
+        uids,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="realName != null">
+        real_name,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="landline != null">
+        landline,
+      </if>
+      <if test="memEmail != null">
+        mem_email,
+      </if>
+      <if test="memPhoto != null">
+        mem_photo,
+      </if>
+      <if test="idcardType != null">
+        idcard_type,
+      </if>
+      <if test="idcard != null">
+        idcard,
+      </if>
+      <if test="zipcode != null">
+        zipcode,
+      </if>
+      <if test="nationality != null">
+        nationality,
+      </if>
+      <if test="company != null">
+        company,
+      </if>
+      <if test="alipay != null">
+        alipay,
+      </if>
+      <if test="qq != null">
+        qq,
+      </if>
+      <if test="memLevel != null">
+        mem_level,
+      </if>
+      <if test="memCode != null">
+        mem_code,
+      </if>
+      <if test="memRight != null">
+        mem_right,
+      </if>
+      <if test="memScore != null">
+        mem_score,
+      </if>
+      <if test="historyScore != null">
+        history_score,
+      </if>
+      <if test="credits != null">
+        credits,
+      </if>
+      <if test="memLeader != null">
+        mem_leader,
+      </if>
+      <if test="memGuide != null">
+        mem_guide,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="logoffTime != null">
+        logoff_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="addresss != null">
+        addresss,
+      </if>
+      <if test="salt != null">
+        salt,
+      </if>
+      <if test="travelCardTotal != null">
+        travel_card_total,
+      </if>
+      <if test="createTimeLong != null">
+        create_time_long,
+      </if>
+      <if test="updateTimeLong != null">
+        update_time_long,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="fromStores != null">
+        from_stores,
+      </if>
+      <if test="fromStoreIds != null">
+        from_store_ids,
+      </if>
+      <if test="addresssIds != null">
+        addresss_ids,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="county != null">
+        county,
+      </if>
+      <if test="resourceOs != null">
+        resource_os,
+      </if>
+      <if test="versionCode != null">
+        version_code,
+      </if>
+      <if test="loginSource != null">
+        login_source,
+      </if>
+      <if test="channel != null">
+        channel,
+      </if>
+      <if test="svip != null">
+        svip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loginName != null">
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null">
+        #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="yingkeCode != null">
+        #{yingkeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="uids != null">
+        #{uids,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="landline != null">
+        #{landline,jdbcType=VARCHAR},
+      </if>
+      <if test="memEmail != null">
+        #{memEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="memPhoto != null">
+        #{memPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardType != null">
+        #{idcardType,jdbcType=INTEGER},
+      </if>
+      <if test="idcard != null">
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="zipcode != null">
+        #{zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="alipay != null">
+        #{alipay,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=INTEGER},
+      </if>
+      <if test="memLevel != null">
+        #{memLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="memCode != null">
+        #{memCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memRight != null">
+        #{memRight,jdbcType=VARCHAR},
+      </if>
+      <if test="memScore != null">
+        #{memScore,jdbcType=VARCHAR},
+      </if>
+      <if test="historyScore != null">
+        #{historyScore,jdbcType=VARCHAR},
+      </if>
+      <if test="credits != null">
+        #{credits,jdbcType=VARCHAR},
+      </if>
+      <if test="memLeader != null">
+        #{memLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="memGuide != null">
+        #{memGuide,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logoffTime != null">
+        #{logoffTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="addresss != null">
+        #{addresss,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="travelCardTotal != null">
+        #{travelCardTotal,jdbcType=INTEGER},
+      </if>
+      <if test="createTimeLong != null">
+        #{createTimeLong,jdbcType=BIGINT},
+      </if>
+      <if test="updateTimeLong != null">
+        #{updateTimeLong,jdbcType=BIGINT},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=BIGINT},
+      </if>
+      <if test="fromStores != null">
+        #{fromStores,jdbcType=VARCHAR},
+      </if>
+      <if test="fromStoreIds != null">
+        #{fromStoreIds,jdbcType=VARCHAR},
+      </if>
+      <if test="addresssIds != null">
+        #{addresssIds,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="county != null">
+        #{county,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceOs != null">
+        #{resourceOs,jdbcType=TINYINT},
+      </if>
+      <if test="versionCode != null">
+        #{versionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="loginSource != null">
+        #{loginSource,jdbcType=TINYINT},
+      </if>
+      <if test="channel != null">
+        #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="svip != null">
+        #{svip,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.generator.gentry.ScmCMember">
+    update scm_c_member
+    <set>
+      <if test="loginName != null">
+        login_name = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null">
+        login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="yingkeCode != null">
+        yingke_code = #{yingkeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="uids != null">
+        uids = #{uids,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="landline != null">
+        landline = #{landline,jdbcType=VARCHAR},
+      </if>
+      <if test="memEmail != null">
+        mem_email = #{memEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="memPhoto != null">
+        mem_photo = #{memPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardType != null">
+        idcard_type = #{idcardType,jdbcType=INTEGER},
+      </if>
+      <if test="idcard != null">
+        idcard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="zipcode != null">
+        zipcode = #{zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        nationality = #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="alipay != null">
+        alipay = #{alipay,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        qq = #{qq,jdbcType=INTEGER},
+      </if>
+      <if test="memLevel != null">
+        mem_level = #{memLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="memCode != null">
+        mem_code = #{memCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memRight != null">
+        mem_right = #{memRight,jdbcType=VARCHAR},
+      </if>
+      <if test="memScore != null">
+        mem_score = #{memScore,jdbcType=VARCHAR},
+      </if>
+      <if test="historyScore != null">
+        history_score = #{historyScore,jdbcType=VARCHAR},
+      </if>
+      <if test="credits != null">
+        credits = #{credits,jdbcType=VARCHAR},
+      </if>
+      <if test="memLeader != null">
+        mem_leader = #{memLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="memGuide != null">
+        mem_guide = #{memGuide,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logoffTime != null">
+        logoff_time = #{logoffTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="addresss != null">
+        addresss = #{addresss,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="travelCardTotal != null">
+        travel_card_total = #{travelCardTotal,jdbcType=INTEGER},
+      </if>
+      <if test="createTimeLong != null">
+        create_time_long = #{createTimeLong,jdbcType=BIGINT},
+      </if>
+      <if test="updateTimeLong != null">
+        update_time_long = #{updateTimeLong,jdbcType=BIGINT},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=BIGINT},
+      </if>
+      <if test="fromStores != null">
+        from_stores = #{fromStores,jdbcType=VARCHAR},
+      </if>
+      <if test="fromStoreIds != null">
+        from_store_ids = #{fromStoreIds,jdbcType=VARCHAR},
+      </if>
+      <if test="addresssIds != null">
+        addresss_ids = #{addresssIds,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="county != null">
+        county = #{county,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceOs != null">
+        resource_os = #{resourceOs,jdbcType=TINYINT},
+      </if>
+      <if test="versionCode != null">
+        version_code = #{versionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="loginSource != null">
+        login_source = #{loginSource,jdbcType=TINYINT},
+      </if>
+      <if test="channel != null">
+        channel = #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="svip != null">
+        svip = #{svip,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.generator.gentry.ScmCMember">
+    update scm_c_member
+    set login_name = #{loginName,jdbcType=VARCHAR},
+      login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      yingke_code = #{yingkeCode,jdbcType=VARCHAR},
+      uids = #{uids,jdbcType=INTEGER},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=INTEGER},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      landline = #{landline,jdbcType=VARCHAR},
+      mem_email = #{memEmail,jdbcType=VARCHAR},
+      mem_photo = #{memPhoto,jdbcType=VARCHAR},
+      idcard_type = #{idcardType,jdbcType=INTEGER},
+      idcard = #{idcard,jdbcType=VARCHAR},
+      zipcode = #{zipcode,jdbcType=VARCHAR},
+      nationality = #{nationality,jdbcType=VARCHAR},
+      company = #{company,jdbcType=VARCHAR},
+      alipay = #{alipay,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=INTEGER},
+      mem_level = #{memLevel,jdbcType=VARCHAR},
+      mem_code = #{memCode,jdbcType=VARCHAR},
+      mem_right = #{memRight,jdbcType=VARCHAR},
+      mem_score = #{memScore,jdbcType=VARCHAR},
+      history_score = #{historyScore,jdbcType=VARCHAR},
+      credits = #{credits,jdbcType=VARCHAR},
+      mem_leader = #{memLeader,jdbcType=VARCHAR},
+      mem_guide = #{memGuide,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      logoff_time = #{logoffTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      addresss = #{addresss,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      travel_card_total = #{travelCardTotal,jdbcType=INTEGER},
+      create_time_long = #{createTimeLong,jdbcType=BIGINT},
+      update_time_long = #{updateTimeLong,jdbcType=BIGINT},
+      birthday = #{birthday,jdbcType=BIGINT},
+      from_stores = #{fromStores,jdbcType=VARCHAR},
+      from_store_ids = #{fromStoreIds,jdbcType=VARCHAR},
+      addresss_ids = #{addresssIds,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      county = #{county,jdbcType=VARCHAR},
+      resource_os = #{resourceOs,jdbcType=TINYINT},
+      version_code = #{versionCode,jdbcType=VARCHAR},
+      login_source = #{loginSource,jdbcType=TINYINT},
+      channel = #{channel,jdbcType=VARCHAR},
+      svip = #{svip,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.example.demo.generator.gentry.ScmCMember">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="login_pwd" jdbcType="VARCHAR" property="loginPwd" />
+    <result column="yingke_code" jdbcType="VARCHAR" property="yingkeCode" />
+    <result column="uids" jdbcType="INTEGER" property="uids" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="landline" jdbcType="VARCHAR" property="landline" />
+    <result column="mem_email" jdbcType="VARCHAR" property="memEmail" />
+    <result column="mem_photo" jdbcType="VARCHAR" property="memPhoto" />
+    <result column="idcard_type" jdbcType="INTEGER" property="idcardType" />
+    <result column="idcard" jdbcType="VARCHAR" property="idcard" />
+    <result column="zipcode" jdbcType="VARCHAR" property="zipcode" />
+    <result column="nationality" jdbcType="VARCHAR" property="nationality" />
+    <result column="company" jdbcType="VARCHAR" property="company" />
+    <result column="alipay" jdbcType="VARCHAR" property="alipay" />
+    <result column="qq" jdbcType="INTEGER" property="qq" />
+    <result column="mem_level" jdbcType="VARCHAR" property="memLevel" />
+    <result column="mem_code" jdbcType="VARCHAR" property="memCode" />
+    <result column="mem_right" jdbcType="VARCHAR" property="memRight" />
+    <result column="mem_score" jdbcType="VARCHAR" property="memScore" />
+    <result column="history_score" jdbcType="VARCHAR" property="historyScore" />
+    <result column="credits" jdbcType="VARCHAR" property="credits" />
+    <result column="mem_leader" jdbcType="VARCHAR" property="memLeader" />
+    <result column="mem_guide" jdbcType="VARCHAR" property="memGuide" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="logoff_time" jdbcType="TIMESTAMP" property="logoffTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="addresss" jdbcType="VARCHAR" property="addresss" />
+    <result column="salt" jdbcType="VARCHAR" property="salt" />
+    <result column="travel_card_total" jdbcType="INTEGER" property="travelCardTotal" />
+    <result column="create_time_long" jdbcType="BIGINT" property="createTimeLong" />
+    <result column="update_time_long" jdbcType="BIGINT" property="updateTimeLong" />
+    <result column="birthday" jdbcType="BIGINT" property="birthday" />
+    <result column="from_stores" jdbcType="VARCHAR" property="fromStores" />
+    <result column="from_store_ids" jdbcType="VARCHAR" property="fromStoreIds" />
+    <result column="addresss_ids" jdbcType="VARCHAR" property="addresssIds" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="county" jdbcType="VARCHAR" property="county" />
+    <result column="resource_os" jdbcType="TINYINT" property="resourceOs" />
+    <result column="version_code" jdbcType="VARCHAR" property="versionCode" />
+    <result column="login_source" jdbcType="TINYINT" property="loginSource" />
+    <result column="channel" jdbcType="VARCHAR" property="channel" />
+    <result column="svip" jdbcType="TINYINT" property="svip" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, login_name, login_pwd, yingke_code, uids, nick_name, real_name, gender, mobile, 
+    landline, mem_email, mem_photo, idcard_type, idcard, zipcode, nationality, company, 
+    alipay, qq, mem_level, mem_code, mem_right, mem_score, history_score, credits, mem_leader, 
+    mem_guide, create_time, update_time, logoff_time, remark, addresss, salt, travel_card_total, 
+    create_time_long, update_time_long, birthday, from_stores, from_store_ids, addresss_ids, 
+    province, city, county, resource_os, version_code, login_source, channel, svip
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from scm_c_member
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from scm_c_member
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.generator.gentry.ScmCMember">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into scm_c_member (login_name, login_pwd, yingke_code, 
+      uids, nick_name, real_name, 
+      gender, mobile, landline, 
+      mem_email, mem_photo, idcard_type, 
+      idcard, zipcode, nationality, 
+      company, alipay, qq, 
+      mem_level, mem_code, mem_right, 
+      mem_score, history_score, credits, 
+      mem_leader, mem_guide, create_time, 
+      update_time, logoff_time, remark, 
+      addresss, salt, travel_card_total, 
+      create_time_long, update_time_long, birthday, 
+      from_stores, from_store_ids, addresss_ids, 
+      province, city, county, 
+      resource_os, version_code, login_source, 
+      channel, svip)
+    values (#{loginName,jdbcType=VARCHAR}, #{loginPwd,jdbcType=VARCHAR}, #{yingkeCode,jdbcType=VARCHAR}, 
+      #{uids,jdbcType=INTEGER}, #{nickName,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{landline,jdbcType=VARCHAR}, 
+      #{memEmail,jdbcType=VARCHAR}, #{memPhoto,jdbcType=VARCHAR}, #{idcardType,jdbcType=INTEGER}, 
+      #{idcard,jdbcType=VARCHAR}, #{zipcode,jdbcType=VARCHAR}, #{nationality,jdbcType=VARCHAR}, 
+      #{company,jdbcType=VARCHAR}, #{alipay,jdbcType=VARCHAR}, #{qq,jdbcType=INTEGER}, 
+      #{memLevel,jdbcType=VARCHAR}, #{memCode,jdbcType=VARCHAR}, #{memRight,jdbcType=VARCHAR}, 
+      #{memScore,jdbcType=VARCHAR}, #{historyScore,jdbcType=VARCHAR}, #{credits,jdbcType=VARCHAR}, 
+      #{memLeader,jdbcType=VARCHAR}, #{memGuide,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{logoffTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
+      #{addresss,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{travelCardTotal,jdbcType=INTEGER}, 
+      #{createTimeLong,jdbcType=BIGINT}, #{updateTimeLong,jdbcType=BIGINT}, #{birthday,jdbcType=BIGINT}, 
+      #{fromStores,jdbcType=VARCHAR}, #{fromStoreIds,jdbcType=VARCHAR}, #{addresssIds,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{county,jdbcType=VARCHAR}, 
+      #{resourceOs,jdbcType=TINYINT}, #{versionCode,jdbcType=VARCHAR}, #{loginSource,jdbcType=TINYINT}, 
+      #{channel,jdbcType=VARCHAR}, #{svip,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.generator.gentry.ScmCMember">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into scm_c_member
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loginName != null">
+        login_name,
+      </if>
+      <if test="loginPwd != null">
+        login_pwd,
+      </if>
+      <if test="yingkeCode != null">
+        yingke_code,
+      </if>
+      <if test="uids != null">
+        uids,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="realName != null">
+        real_name,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="landline != null">
+        landline,
+      </if>
+      <if test="memEmail != null">
+        mem_email,
+      </if>
+      <if test="memPhoto != null">
+        mem_photo,
+      </if>
+      <if test="idcardType != null">
+        idcard_type,
+      </if>
+      <if test="idcard != null">
+        idcard,
+      </if>
+      <if test="zipcode != null">
+        zipcode,
+      </if>
+      <if test="nationality != null">
+        nationality,
+      </if>
+      <if test="company != null">
+        company,
+      </if>
+      <if test="alipay != null">
+        alipay,
+      </if>
+      <if test="qq != null">
+        qq,
+      </if>
+      <if test="memLevel != null">
+        mem_level,
+      </if>
+      <if test="memCode != null">
+        mem_code,
+      </if>
+      <if test="memRight != null">
+        mem_right,
+      </if>
+      <if test="memScore != null">
+        mem_score,
+      </if>
+      <if test="historyScore != null">
+        history_score,
+      </if>
+      <if test="credits != null">
+        credits,
+      </if>
+      <if test="memLeader != null">
+        mem_leader,
+      </if>
+      <if test="memGuide != null">
+        mem_guide,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="logoffTime != null">
+        logoff_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="addresss != null">
+        addresss,
+      </if>
+      <if test="salt != null">
+        salt,
+      </if>
+      <if test="travelCardTotal != null">
+        travel_card_total,
+      </if>
+      <if test="createTimeLong != null">
+        create_time_long,
+      </if>
+      <if test="updateTimeLong != null">
+        update_time_long,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="fromStores != null">
+        from_stores,
+      </if>
+      <if test="fromStoreIds != null">
+        from_store_ids,
+      </if>
+      <if test="addresssIds != null">
+        addresss_ids,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="county != null">
+        county,
+      </if>
+      <if test="resourceOs != null">
+        resource_os,
+      </if>
+      <if test="versionCode != null">
+        version_code,
+      </if>
+      <if test="loginSource != null">
+        login_source,
+      </if>
+      <if test="channel != null">
+        channel,
+      </if>
+      <if test="svip != null">
+        svip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loginName != null">
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null">
+        #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="yingkeCode != null">
+        #{yingkeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="uids != null">
+        #{uids,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="landline != null">
+        #{landline,jdbcType=VARCHAR},
+      </if>
+      <if test="memEmail != null">
+        #{memEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="memPhoto != null">
+        #{memPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardType != null">
+        #{idcardType,jdbcType=INTEGER},
+      </if>
+      <if test="idcard != null">
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="zipcode != null">
+        #{zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="alipay != null">
+        #{alipay,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=INTEGER},
+      </if>
+      <if test="memLevel != null">
+        #{memLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="memCode != null">
+        #{memCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memRight != null">
+        #{memRight,jdbcType=VARCHAR},
+      </if>
+      <if test="memScore != null">
+        #{memScore,jdbcType=VARCHAR},
+      </if>
+      <if test="historyScore != null">
+        #{historyScore,jdbcType=VARCHAR},
+      </if>
+      <if test="credits != null">
+        #{credits,jdbcType=VARCHAR},
+      </if>
+      <if test="memLeader != null">
+        #{memLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="memGuide != null">
+        #{memGuide,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logoffTime != null">
+        #{logoffTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="addresss != null">
+        #{addresss,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="travelCardTotal != null">
+        #{travelCardTotal,jdbcType=INTEGER},
+      </if>
+      <if test="createTimeLong != null">
+        #{createTimeLong,jdbcType=BIGINT},
+      </if>
+      <if test="updateTimeLong != null">
+        #{updateTimeLong,jdbcType=BIGINT},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=BIGINT},
+      </if>
+      <if test="fromStores != null">
+        #{fromStores,jdbcType=VARCHAR},
+      </if>
+      <if test="fromStoreIds != null">
+        #{fromStoreIds,jdbcType=VARCHAR},
+      </if>
+      <if test="addresssIds != null">
+        #{addresssIds,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="county != null">
+        #{county,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceOs != null">
+        #{resourceOs,jdbcType=TINYINT},
+      </if>
+      <if test="versionCode != null">
+        #{versionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="loginSource != null">
+        #{loginSource,jdbcType=TINYINT},
+      </if>
+      <if test="channel != null">
+        #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="svip != null">
+        #{svip,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.generator.gentry.ScmCMember">
+    update scm_c_member
+    <set>
+      <if test="loginName != null">
+        login_name = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null">
+        login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="yingkeCode != null">
+        yingke_code = #{yingkeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="uids != null">
+        uids = #{uids,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="landline != null">
+        landline = #{landline,jdbcType=VARCHAR},
+      </if>
+      <if test="memEmail != null">
+        mem_email = #{memEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="memPhoto != null">
+        mem_photo = #{memPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardType != null">
+        idcard_type = #{idcardType,jdbcType=INTEGER},
+      </if>
+      <if test="idcard != null">
+        idcard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="zipcode != null">
+        zipcode = #{zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        nationality = #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="alipay != null">
+        alipay = #{alipay,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        qq = #{qq,jdbcType=INTEGER},
+      </if>
+      <if test="memLevel != null">
+        mem_level = #{memLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="memCode != null">
+        mem_code = #{memCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memRight != null">
+        mem_right = #{memRight,jdbcType=VARCHAR},
+      </if>
+      <if test="memScore != null">
+        mem_score = #{memScore,jdbcType=VARCHAR},
+      </if>
+      <if test="historyScore != null">
+        history_score = #{historyScore,jdbcType=VARCHAR},
+      </if>
+      <if test="credits != null">
+        credits = #{credits,jdbcType=VARCHAR},
+      </if>
+      <if test="memLeader != null">
+        mem_leader = #{memLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="memGuide != null">
+        mem_guide = #{memGuide,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logoffTime != null">
+        logoff_time = #{logoffTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="addresss != null">
+        addresss = #{addresss,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="travelCardTotal != null">
+        travel_card_total = #{travelCardTotal,jdbcType=INTEGER},
+      </if>
+      <if test="createTimeLong != null">
+        create_time_long = #{createTimeLong,jdbcType=BIGINT},
+      </if>
+      <if test="updateTimeLong != null">
+        update_time_long = #{updateTimeLong,jdbcType=BIGINT},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=BIGINT},
+      </if>
+      <if test="fromStores != null">
+        from_stores = #{fromStores,jdbcType=VARCHAR},
+      </if>
+      <if test="fromStoreIds != null">
+        from_store_ids = #{fromStoreIds,jdbcType=VARCHAR},
+      </if>
+      <if test="addresssIds != null">
+        addresss_ids = #{addresssIds,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="county != null">
+        county = #{county,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceOs != null">
+        resource_os = #{resourceOs,jdbcType=TINYINT},
+      </if>
+      <if test="versionCode != null">
+        version_code = #{versionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="loginSource != null">
+        login_source = #{loginSource,jdbcType=TINYINT},
+      </if>
+      <if test="channel != null">
+        channel = #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="svip != null">
+        svip = #{svip,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.generator.gentry.ScmCMember">
+    update scm_c_member
+    set login_name = #{loginName,jdbcType=VARCHAR},
+      login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      yingke_code = #{yingkeCode,jdbcType=VARCHAR},
+      uids = #{uids,jdbcType=INTEGER},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=INTEGER},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      landline = #{landline,jdbcType=VARCHAR},
+      mem_email = #{memEmail,jdbcType=VARCHAR},
+      mem_photo = #{memPhoto,jdbcType=VARCHAR},
+      idcard_type = #{idcardType,jdbcType=INTEGER},
+      idcard = #{idcard,jdbcType=VARCHAR},
+      zipcode = #{zipcode,jdbcType=VARCHAR},
+      nationality = #{nationality,jdbcType=VARCHAR},
+      company = #{company,jdbcType=VARCHAR},
+      alipay = #{alipay,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=INTEGER},
+      mem_level = #{memLevel,jdbcType=VARCHAR},
+      mem_code = #{memCode,jdbcType=VARCHAR},
+      mem_right = #{memRight,jdbcType=VARCHAR},
+      mem_score = #{memScore,jdbcType=VARCHAR},
+      history_score = #{historyScore,jdbcType=VARCHAR},
+      credits = #{credits,jdbcType=VARCHAR},
+      mem_leader = #{memLeader,jdbcType=VARCHAR},
+      mem_guide = #{memGuide,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      logoff_time = #{logoffTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      addresss = #{addresss,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      travel_card_total = #{travelCardTotal,jdbcType=INTEGER},
+      create_time_long = #{createTimeLong,jdbcType=BIGINT},
+      update_time_long = #{updateTimeLong,jdbcType=BIGINT},
+      birthday = #{birthday,jdbcType=BIGINT},
+      from_stores = #{fromStores,jdbcType=VARCHAR},
+      from_store_ids = #{fromStoreIds,jdbcType=VARCHAR},
+      addresss_ids = #{addresssIds,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      county = #{county,jdbcType=VARCHAR},
+      resource_os = #{resourceOs,jdbcType=TINYINT},
+      version_code = #{versionCode,jdbcType=VARCHAR},
+      login_source = #{loginSource,jdbcType=TINYINT},
+      channel = #{channel,jdbcType=VARCHAR},
+      svip = #{svip,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.example.demo.generator.gentry.ScmCMember">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="login_pwd" jdbcType="VARCHAR" property="loginPwd" />
+    <result column="yingke_code" jdbcType="VARCHAR" property="yingkeCode" />
+    <result column="uids" jdbcType="INTEGER" property="uids" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="landline" jdbcType="VARCHAR" property="landline" />
+    <result column="mem_email" jdbcType="VARCHAR" property="memEmail" />
+    <result column="mem_photo" jdbcType="VARCHAR" property="memPhoto" />
+    <result column="idcard_type" jdbcType="INTEGER" property="idcardType" />
+    <result column="idcard" jdbcType="VARCHAR" property="idcard" />
+    <result column="zipcode" jdbcType="VARCHAR" property="zipcode" />
+    <result column="nationality" jdbcType="VARCHAR" property="nationality" />
+    <result column="company" jdbcType="VARCHAR" property="company" />
+    <result column="alipay" jdbcType="VARCHAR" property="alipay" />
+    <result column="qq" jdbcType="INTEGER" property="qq" />
+    <result column="mem_level" jdbcType="VARCHAR" property="memLevel" />
+    <result column="mem_code" jdbcType="VARCHAR" property="memCode" />
+    <result column="mem_right" jdbcType="VARCHAR" property="memRight" />
+    <result column="mem_score" jdbcType="VARCHAR" property="memScore" />
+    <result column="history_score" jdbcType="VARCHAR" property="historyScore" />
+    <result column="credits" jdbcType="VARCHAR" property="credits" />
+    <result column="mem_leader" jdbcType="VARCHAR" property="memLeader" />
+    <result column="mem_guide" jdbcType="VARCHAR" property="memGuide" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="logoff_time" jdbcType="TIMESTAMP" property="logoffTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="addresss" jdbcType="VARCHAR" property="addresss" />
+    <result column="salt" jdbcType="VARCHAR" property="salt" />
+    <result column="travel_card_total" jdbcType="INTEGER" property="travelCardTotal" />
+    <result column="create_time_long" jdbcType="BIGINT" property="createTimeLong" />
+    <result column="update_time_long" jdbcType="BIGINT" property="updateTimeLong" />
+    <result column="birthday" jdbcType="BIGINT" property="birthday" />
+    <result column="from_stores" jdbcType="VARCHAR" property="fromStores" />
+    <result column="from_store_ids" jdbcType="VARCHAR" property="fromStoreIds" />
+    <result column="addresss_ids" jdbcType="VARCHAR" property="addresssIds" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="county" jdbcType="VARCHAR" property="county" />
+    <result column="resource_os" jdbcType="TINYINT" property="resourceOs" />
+    <result column="version_code" jdbcType="VARCHAR" property="versionCode" />
+    <result column="login_source" jdbcType="TINYINT" property="loginSource" />
+    <result column="channel" jdbcType="VARCHAR" property="channel" />
+    <result column="svip" jdbcType="TINYINT" property="svip" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, login_name, login_pwd, yingke_code, uids, nick_name, real_name, gender, mobile, 
+    landline, mem_email, mem_photo, idcard_type, idcard, zipcode, nationality, company, 
+    alipay, qq, mem_level, mem_code, mem_right, mem_score, history_score, credits, mem_leader, 
+    mem_guide, create_time, update_time, logoff_time, remark, addresss, salt, travel_card_total, 
+    create_time_long, update_time_long, birthday, from_stores, from_store_ids, addresss_ids, 
+    province, city, county, resource_os, version_code, login_source, channel, svip
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from scm_c_member
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from scm_c_member
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.generator.gentry.ScmCMember">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into scm_c_member (login_name, login_pwd, yingke_code, 
+      uids, nick_name, real_name, 
+      gender, mobile, landline, 
+      mem_email, mem_photo, idcard_type, 
+      idcard, zipcode, nationality, 
+      company, alipay, qq, 
+      mem_level, mem_code, mem_right, 
+      mem_score, history_score, credits, 
+      mem_leader, mem_guide, create_time, 
+      update_time, logoff_time, remark, 
+      addresss, salt, travel_card_total, 
+      create_time_long, update_time_long, birthday, 
+      from_stores, from_store_ids, addresss_ids, 
+      province, city, county, 
+      resource_os, version_code, login_source, 
+      channel, svip)
+    values (#{loginName,jdbcType=VARCHAR}, #{loginPwd,jdbcType=VARCHAR}, #{yingkeCode,jdbcType=VARCHAR}, 
+      #{uids,jdbcType=INTEGER}, #{nickName,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{landline,jdbcType=VARCHAR}, 
+      #{memEmail,jdbcType=VARCHAR}, #{memPhoto,jdbcType=VARCHAR}, #{idcardType,jdbcType=INTEGER}, 
+      #{idcard,jdbcType=VARCHAR}, #{zipcode,jdbcType=VARCHAR}, #{nationality,jdbcType=VARCHAR}, 
+      #{company,jdbcType=VARCHAR}, #{alipay,jdbcType=VARCHAR}, #{qq,jdbcType=INTEGER}, 
+      #{memLevel,jdbcType=VARCHAR}, #{memCode,jdbcType=VARCHAR}, #{memRight,jdbcType=VARCHAR}, 
+      #{memScore,jdbcType=VARCHAR}, #{historyScore,jdbcType=VARCHAR}, #{credits,jdbcType=VARCHAR}, 
+      #{memLeader,jdbcType=VARCHAR}, #{memGuide,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{logoffTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
+      #{addresss,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{travelCardTotal,jdbcType=INTEGER}, 
+      #{createTimeLong,jdbcType=BIGINT}, #{updateTimeLong,jdbcType=BIGINT}, #{birthday,jdbcType=BIGINT}, 
+      #{fromStores,jdbcType=VARCHAR}, #{fromStoreIds,jdbcType=VARCHAR}, #{addresssIds,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{county,jdbcType=VARCHAR}, 
+      #{resourceOs,jdbcType=TINYINT}, #{versionCode,jdbcType=VARCHAR}, #{loginSource,jdbcType=TINYINT}, 
+      #{channel,jdbcType=VARCHAR}, #{svip,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.generator.gentry.ScmCMember">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into scm_c_member
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loginName != null">
+        login_name,
+      </if>
+      <if test="loginPwd != null">
+        login_pwd,
+      </if>
+      <if test="yingkeCode != null">
+        yingke_code,
+      </if>
+      <if test="uids != null">
+        uids,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="realName != null">
+        real_name,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="landline != null">
+        landline,
+      </if>
+      <if test="memEmail != null">
+        mem_email,
+      </if>
+      <if test="memPhoto != null">
+        mem_photo,
+      </if>
+      <if test="idcardType != null">
+        idcard_type,
+      </if>
+      <if test="idcard != null">
+        idcard,
+      </if>
+      <if test="zipcode != null">
+        zipcode,
+      </if>
+      <if test="nationality != null">
+        nationality,
+      </if>
+      <if test="company != null">
+        company,
+      </if>
+      <if test="alipay != null">
+        alipay,
+      </if>
+      <if test="qq != null">
+        qq,
+      </if>
+      <if test="memLevel != null">
+        mem_level,
+      </if>
+      <if test="memCode != null">
+        mem_code,
+      </if>
+      <if test="memRight != null">
+        mem_right,
+      </if>
+      <if test="memScore != null">
+        mem_score,
+      </if>
+      <if test="historyScore != null">
+        history_score,
+      </if>
+      <if test="credits != null">
+        credits,
+      </if>
+      <if test="memLeader != null">
+        mem_leader,
+      </if>
+      <if test="memGuide != null">
+        mem_guide,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="logoffTime != null">
+        logoff_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="addresss != null">
+        addresss,
+      </if>
+      <if test="salt != null">
+        salt,
+      </if>
+      <if test="travelCardTotal != null">
+        travel_card_total,
+      </if>
+      <if test="createTimeLong != null">
+        create_time_long,
+      </if>
+      <if test="updateTimeLong != null">
+        update_time_long,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="fromStores != null">
+        from_stores,
+      </if>
+      <if test="fromStoreIds != null">
+        from_store_ids,
+      </if>
+      <if test="addresssIds != null">
+        addresss_ids,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="county != null">
+        county,
+      </if>
+      <if test="resourceOs != null">
+        resource_os,
+      </if>
+      <if test="versionCode != null">
+        version_code,
+      </if>
+      <if test="loginSource != null">
+        login_source,
+      </if>
+      <if test="channel != null">
+        channel,
+      </if>
+      <if test="svip != null">
+        svip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loginName != null">
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null">
+        #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="yingkeCode != null">
+        #{yingkeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="uids != null">
+        #{uids,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="landline != null">
+        #{landline,jdbcType=VARCHAR},
+      </if>
+      <if test="memEmail != null">
+        #{memEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="memPhoto != null">
+        #{memPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardType != null">
+        #{idcardType,jdbcType=INTEGER},
+      </if>
+      <if test="idcard != null">
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="zipcode != null">
+        #{zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="alipay != null">
+        #{alipay,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=INTEGER},
+      </if>
+      <if test="memLevel != null">
+        #{memLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="memCode != null">
+        #{memCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memRight != null">
+        #{memRight,jdbcType=VARCHAR},
+      </if>
+      <if test="memScore != null">
+        #{memScore,jdbcType=VARCHAR},
+      </if>
+      <if test="historyScore != null">
+        #{historyScore,jdbcType=VARCHAR},
+      </if>
+      <if test="credits != null">
+        #{credits,jdbcType=VARCHAR},
+      </if>
+      <if test="memLeader != null">
+        #{memLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="memGuide != null">
+        #{memGuide,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logoffTime != null">
+        #{logoffTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="addresss != null">
+        #{addresss,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="travelCardTotal != null">
+        #{travelCardTotal,jdbcType=INTEGER},
+      </if>
+      <if test="createTimeLong != null">
+        #{createTimeLong,jdbcType=BIGINT},
+      </if>
+      <if test="updateTimeLong != null">
+        #{updateTimeLong,jdbcType=BIGINT},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=BIGINT},
+      </if>
+      <if test="fromStores != null">
+        #{fromStores,jdbcType=VARCHAR},
+      </if>
+      <if test="fromStoreIds != null">
+        #{fromStoreIds,jdbcType=VARCHAR},
+      </if>
+      <if test="addresssIds != null">
+        #{addresssIds,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="county != null">
+        #{county,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceOs != null">
+        #{resourceOs,jdbcType=TINYINT},
+      </if>
+      <if test="versionCode != null">
+        #{versionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="loginSource != null">
+        #{loginSource,jdbcType=TINYINT},
+      </if>
+      <if test="channel != null">
+        #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="svip != null">
+        #{svip,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.generator.gentry.ScmCMember">
+    update scm_c_member
+    <set>
+      <if test="loginName != null">
+        login_name = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null">
+        login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="yingkeCode != null">
+        yingke_code = #{yingkeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="uids != null">
+        uids = #{uids,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="landline != null">
+        landline = #{landline,jdbcType=VARCHAR},
+      </if>
+      <if test="memEmail != null">
+        mem_email = #{memEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="memPhoto != null">
+        mem_photo = #{memPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardType != null">
+        idcard_type = #{idcardType,jdbcType=INTEGER},
+      </if>
+      <if test="idcard != null">
+        idcard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="zipcode != null">
+        zipcode = #{zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        nationality = #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="alipay != null">
+        alipay = #{alipay,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        qq = #{qq,jdbcType=INTEGER},
+      </if>
+      <if test="memLevel != null">
+        mem_level = #{memLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="memCode != null">
+        mem_code = #{memCode,jdbcType=VARCHAR},
+      </if>
+      <if test="memRight != null">
+        mem_right = #{memRight,jdbcType=VARCHAR},
+      </if>
+      <if test="memScore != null">
+        mem_score = #{memScore,jdbcType=VARCHAR},
+      </if>
+      <if test="historyScore != null">
+        history_score = #{historyScore,jdbcType=VARCHAR},
+      </if>
+      <if test="credits != null">
+        credits = #{credits,jdbcType=VARCHAR},
+      </if>
+      <if test="memLeader != null">
+        mem_leader = #{memLeader,jdbcType=VARCHAR},
+      </if>
+      <if test="memGuide != null">
+        mem_guide = #{memGuide,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logoffTime != null">
+        logoff_time = #{logoffTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="addresss != null">
+        addresss = #{addresss,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="travelCardTotal != null">
+        travel_card_total = #{travelCardTotal,jdbcType=INTEGER},
+      </if>
+      <if test="createTimeLong != null">
+        create_time_long = #{createTimeLong,jdbcType=BIGINT},
+      </if>
+      <if test="updateTimeLong != null">
+        update_time_long = #{updateTimeLong,jdbcType=BIGINT},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=BIGINT},
+      </if>
+      <if test="fromStores != null">
+        from_stores = #{fromStores,jdbcType=VARCHAR},
+      </if>
+      <if test="fromStoreIds != null">
+        from_store_ids = #{fromStoreIds,jdbcType=VARCHAR},
+      </if>
+      <if test="addresssIds != null">
+        addresss_ids = #{addresssIds,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="county != null">
+        county = #{county,jdbcType=VARCHAR},
+      </if>
+      <if test="resourceOs != null">
+        resource_os = #{resourceOs,jdbcType=TINYINT},
+      </if>
+      <if test="versionCode != null">
+        version_code = #{versionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="loginSource != null">
+        login_source = #{loginSource,jdbcType=TINYINT},
+      </if>
+      <if test="channel != null">
+        channel = #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="svip != null">
+        svip = #{svip,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.generator.gentry.ScmCMember">
+    update scm_c_member
+    set login_name = #{loginName,jdbcType=VARCHAR},
+      login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      yingke_code = #{yingkeCode,jdbcType=VARCHAR},
+      uids = #{uids,jdbcType=INTEGER},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      real_name = #{realName,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=INTEGER},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      landline = #{landline,jdbcType=VARCHAR},
+      mem_email = #{memEmail,jdbcType=VARCHAR},
+      mem_photo = #{memPhoto,jdbcType=VARCHAR},
+      idcard_type = #{idcardType,jdbcType=INTEGER},
+      idcard = #{idcard,jdbcType=VARCHAR},
+      zipcode = #{zipcode,jdbcType=VARCHAR},
+      nationality = #{nationality,jdbcType=VARCHAR},
+      company = #{company,jdbcType=VARCHAR},
+      alipay = #{alipay,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=INTEGER},
+      mem_level = #{memLevel,jdbcType=VARCHAR},
+      mem_code = #{memCode,jdbcType=VARCHAR},
+      mem_right = #{memRight,jdbcType=VARCHAR},
+      mem_score = #{memScore,jdbcType=VARCHAR},
+      history_score = #{historyScore,jdbcType=VARCHAR},
+      credits = #{credits,jdbcType=VARCHAR},
+      mem_leader = #{memLeader,jdbcType=VARCHAR},
+      mem_guide = #{memGuide,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      logoff_time = #{logoffTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      addresss = #{addresss,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      travel_card_total = #{travelCardTotal,jdbcType=INTEGER},
+      create_time_long = #{createTimeLong,jdbcType=BIGINT},
+      update_time_long = #{updateTimeLong,jdbcType=BIGINT},
+      birthday = #{birthday,jdbcType=BIGINT},
+      from_stores = #{fromStores,jdbcType=VARCHAR},
+      from_store_ids = #{fromStoreIds,jdbcType=VARCHAR},
+      addresss_ids = #{addresssIds,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      county = #{county,jdbcType=VARCHAR},
+      resource_os = #{resourceOs,jdbcType=TINYINT},
+      version_code = #{versionCode,jdbcType=VARCHAR},
+      login_source = #{loginSource,jdbcType=TINYINT},
+      channel = #{channel,jdbcType=VARCHAR},
+      svip = #{svip,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
