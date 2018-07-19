@@ -1,6 +1,3 @@
-#server:
-  #port: 8888
-
 spring:
   server:
     port: 8095
@@ -60,13 +57,7 @@ http:
     max-per-route: 20
     connect-request-timeout: 5000
     connect-timeout: 5000
-    socket-timeout: 60000
+    socket-timeout: 6000
 
-#logging:
-  #config: classpath:logback-spring-test.xml
-  #level:
-       #com.alibaba.druid: debug
-       #com.example.demo.mapper: debug
-       #org.mybatis: debug
 
 param: 000default

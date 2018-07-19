@@ -36,7 +36,7 @@ public class BisRestTemplate {
     
     private ResponseEntity<byte[]> httpGet(String url, Map<String, String> headerMap, Map<String, String> reqMap,
                                            Class<byte[]> responseType, RestTemplate restTemplate) {
-        ResponseEntity<byte[]> responseEntity;
+        ResponseEntity<byte[]> responseEntity = null;
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url);
         try {
             if (reqMap != null) {

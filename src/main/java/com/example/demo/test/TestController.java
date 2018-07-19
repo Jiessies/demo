@@ -1,13 +1,10 @@
 package com.example.demo.test;
 
+import com.example.demo.rest.BisRestTemplate;
 import com.example.demo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by huangmingjie on 2018/5/7.
@@ -23,12 +20,12 @@ public class TestController {
     private OrderService orderService;
     
     @Autowired
-    private RestTemplate restTemplate;
+    private BisRestTemplate restTemplate;
     
     @GetMapping("/test1")
     public String doTest1() {
         try {
-            Thread.sleep(2000);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -41,4 +38,9 @@ public class TestController {
         return orderService.findOrder(orderNo);
     }
     
+    @GetMapping("/test3")
+    public String rest(@RequestParam(value = "url") String url) {
+        String response = restTemplate.get(url, null, null);
+        return response;
+    }
 }

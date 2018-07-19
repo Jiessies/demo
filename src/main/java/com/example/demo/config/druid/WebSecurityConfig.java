@@ -16,7 +16,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
   
         /*if("dev".equals(env)){ //如果需要在开发服中免登录
-            http.authorizeRequests().antMatchers("*//**","*//**//*filters").permitAll();
+            http.authorizeRequests().antMatchers("*","filters").permitAll();
             http.csrf().disable();
             http.httpBasic();
             return;
@@ -30,7 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests().antMatchers("/**").authenticated();
         http.csrf().disable();
         http.httpBasic();
-        
+
     }
     
     /*@Autowired //也可以在application.yml文件中配置登录账号密码：security.user.name/password

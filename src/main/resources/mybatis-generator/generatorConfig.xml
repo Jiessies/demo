@@ -54,13 +54,13 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!-- table可以有多个,每个数据库中的表都可以写一个table，tableName表示要匹配的数据库表,也可以在tableName属性中通过使用%通配符来匹配所有数据库表,只有匹配的表才会自动生成文件 -->
-        <table tableName="scm_c_member" enableCountByExample="false" enableUpdateByExample="false"
+        <table tableName="yk_train_order_passengers" enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="false"/>
             <!-- 数据库表主键 -->
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>
-        <table tableName="yk_mtm_user" enableCountByExample="false" enableUpdateByExample="false"
+        <table tableName="yk_train_order" enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="false"/>
             <!-- 数据库表主键 -->
