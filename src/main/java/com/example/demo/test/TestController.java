@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
+
 /**
  * Created by huangmingjie on 2018/5/7.
  */
@@ -21,7 +23,19 @@ public class TestController {
     
     @Autowired
     private BisRestTemplate restTemplate;
-    
+
+    @Autowired
+    private DynamicTask dynamicTask;
+
+    public TestController(){
+        System.out.println("init TestController");
+    }
+
+    @PostConstruct
+    public void testPost(){
+        System.out.println("init testPost");
+    }
+
     @GetMapping("/test1")
     public String doTest1() {
         try {
@@ -30,6 +44,7 @@ public class TestController {
             e.printStackTrace();
         }
         System.out.println(param);
+        System.out.println(dynamicTask.getName());
         return "hi" + param;
     }
     

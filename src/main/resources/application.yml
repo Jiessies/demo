@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: demo000
   server:
     port: 8095
     acceptorThreadCount: 4
@@ -45,7 +47,7 @@ management:
     web:
       exposure:
         include: "*"
-        exclude: env,bean,test
+        exclude: test
 
 mybatis:
   mapperLocations: classpath:mapper/*.xml
